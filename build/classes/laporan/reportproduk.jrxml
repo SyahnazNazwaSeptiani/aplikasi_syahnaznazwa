@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e31d0a74-faf0-4d1d-b312-6f78f63ab925">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select*from produk]]>
+	</queryString>
+	<field name="ProdukID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NamaProduk" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Harga" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Stok" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="25" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="115" splitType="Stretch">
+			<image>
+				<reportElement x="57" y="14" width="97" height="88" uuid="17c40df9-d510-4694-a66e-205f53ace450"/>
+				<imageExpression><![CDATA["C:\\Users\\user\\Pictures\\mini mart syahnaz.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="193" y="26" width="187" height="20" uuid="89788c62-f41d-408d-8416-0d5bd22732e2"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" size="14"/>
+				</textElement>
+				<text><![CDATA[LAPORAN DATA PRODUK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="206" y="46" width="151" height="20" uuid="e3065088-6e88-4e6e-8bce-8705795c1c6b"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" size="14"/>
+				</textElement>
+				<text><![CDATA[MINI MART SYAHNAZ]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="100" height="20" uuid="f1e4e340-e1e9-4095-afa5-c0e2313d8618"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="154" y="0" width="100" height="20" uuid="f2b8baa8-5e11-4f0d-9e29-946b81ba116a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="334" y="0" width="100" height="20" uuid="75c3ba2c-431b-44a2-ba0c-f3437086d530"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="455" y="0" width="100" height="20" uuid="6d257619-8f6d-4fb0-9683-b5e1cbc6941f"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="7249717d-7734-469c-aaec-feea600e7044"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<text><![CDATA[ProdukID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="154" y="0" width="100" height="20" uuid="ec7339c9-7ee3-4ac7-af6d-f878d12d451e"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<text><![CDATA[Nama Produk]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="0" width="100" height="20" uuid="eb9d3b5a-56f8-4db3-944a-bfc3aae76b34"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="0" width="100" height="20" uuid="b14f754f-b4d8-4d84-9cb4-dbf00f510349"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<text><![CDATA[Stok]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="e18aa3fa-2c94-4169-87cc-0b2b04830e02"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ProdukID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="154" y="0" width="100" height="20" uuid="232748f8-12e1-4786-bb38-e1bda29d5f38"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NamaProduk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="334" y="0" width="100" height="20" uuid="b2aebf93-054d-4de4-beab-ba6922b189c7"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="82321b7c-19d1-4ccf-a0cd-40f23ac49031"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Stok}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
