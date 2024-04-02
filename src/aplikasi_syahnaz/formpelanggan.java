@@ -342,6 +342,11 @@ private void simpan() {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tblpelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblpelangganMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(tblpelanggan);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -352,14 +357,9 @@ private void simpan() {
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -453,7 +453,6 @@ mulai();         // TODO add your handling code here:
     }//GEN-LAST:event_bnhapus1ActionPerformed
 
     private void btnkeluar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkeluar1ActionPerformed
- new menuutama().setVisible(true);
 this.dispose();
        // TODO add your handling code here:
     }//GEN-LAST:event_btnkeluar1ActionPerformed
@@ -466,6 +465,28 @@ this.dispose();
     private void txtnmplnggnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnmplnggnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtnmplnggnActionPerformed
+
+    private void tblpelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblpelangganMouseClicked
+try {
+    int baris = tblpelanggan.getSelectedRow();
+    String tabelKlik = (tblpelanggan.getModel().getValueAt(baris, 0).toString());
+    String sql = "select * from pelanggan where PelangganID='"+tabelKlik+"'";
+    pst = konek.prepareStatement(sql);
+    rst = pst.executeQuery();
+    if (rst.next()) {
+        String idpelanggan = rst.getString(("PelangganID"));
+        txtpelanggan.setText(idpelanggan);
+        String namapelanggan = rst.getString(("NamaPelanggan"));
+        txtnmplnggn.setText(namapelanggan);
+        String alamat = rst.getString(("Alamat"));
+        txtAlamat.setText(alamat);
+        String notlp = rst.getString(("NomorTelepon"));
+        txtnotelpon.setText(notlp);
+    }
+} catch (Exception e) {
+    JOptionPane.showMessageDialog(null, "Tidak terkoneksi ke Tabel di Database");
+}        // TODO add your handling code here:
+    }//GEN-LAST:event_tblpelangganMouseClicked
 
     /**
      * @param args the command line arguments

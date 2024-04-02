@@ -51,7 +51,7 @@ public class formabout extends javax.swing.JFrame {
         jLabel4.setText("Versi    : 1.0");
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel6.setText("Di Buat Oleh : syahnaz Nazwa Septiani");
+        jLabel6.setText("Di Buat Oleh : Syahnaz Nazwa Septiani");
 
         btnkeluar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnkeluar.setText("KELUAR");
@@ -109,7 +109,7 @@ public class formabout extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnkeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkeluarActionPerformed
-dispose();       // TODO add your handling code here:
+this.dispose();      // TODO add your handling code here:
     }//GEN-LAST:event_btnkeluarActionPerformed
 
     /**

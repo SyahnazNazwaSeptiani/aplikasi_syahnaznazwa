@@ -92,7 +92,7 @@ ResultSet rst;
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Hak Akses");
 
-        cmbHakAkses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Pilih salah satu", "-Admin", "-Petugas" }));
+        cmbHakAkses.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Pilih salah satu", "Admin", "Petugas" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -202,8 +202,7 @@ ResultSet rst;
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnbatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbatalActionPerformed
-        new menuutama().setVisible(true);
-        this.dispose();        // TODO add your handling code here:
+this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_btnbatalActionPerformed
 
     private void btnsimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsimpanActionPerformed

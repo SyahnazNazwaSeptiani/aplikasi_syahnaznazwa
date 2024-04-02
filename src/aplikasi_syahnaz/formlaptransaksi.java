@@ -50,6 +50,7 @@ public class formlaptransaksi extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         tbldataproduk = new javax.swing.JTable();
         sebelumtgl = new com.toedter.calendar.JDateChooser();
+        btnkeluar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,6 +132,13 @@ public class formlaptransaksi extends javax.swing.JFrame {
             }
         });
 
+        btnkeluar.setText("KELUAR");
+        btnkeluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnkeluarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -154,17 +162,22 @@ public class formlaptransaksi extends javax.swing.JFrame {
                                     .addComponent(jLabel3)
                                     .addComponent(jLabel5))
                                 .addGap(77, 77, 77)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(setelahtgl, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(daritgl, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(29, 29, 29)
                                         .addComponent(jLabel4)
                                         .addGap(26, 26, 26)
-                                        .addComponent(sampaitgl, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(246, 246, 246)
-                        .addComponent(btncari3))
+                                        .addComponent(sampaitgl, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(setelahtgl, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(11, 11, 11)
+                                                .addComponent(btncari3)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnkeluar)
+                                        .addGap(39, 39, 39))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(249, 249, 249)
                         .addComponent(btncari2))
@@ -193,16 +206,21 @@ public class formlaptransaksi extends javax.swing.JFrame {
                     .addComponent(sampaitgl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addComponent(btncari2)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(setelahtgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(btncari3)
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(setelahtgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btncari3)
+                        .addGap(39, 39, 39)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(btnkeluar)))
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
@@ -213,7 +231,7 @@ public class formlaptransaksi extends javax.swing.JFrame {
 try {
      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
      tanggal = format.format(sebelumtgl.getDate());
-     sql = "select * from tbl_penjualan where TanggalPenjualan <'"+tanggal+"'";
+     sql = "select * from penjualan where TanggalPenjualan <'"+tanggal+"'";
      pst = konek.prepareStatement(sql);
      tbllaptransaksi.setModel(DbUtils.resultSetToTableModel(rst));
  } catch (Exception e) {
@@ -226,7 +244,7 @@ try {
 try {
     int row = tbllaptransaksi.getSelectedRow();
     String tableKlik = (tbllaptransaksi.getModel().getValueAt (row, 1).toString());
-    String sql = "select * from tbl_detailpenjualan where DetailID=?";
+    String sql = "select * from detailpenjualan where DetailID=?";
     pst = konek.prepareStatement(sql);
     pst.setString(1, tableKlik);
     rst = pst.executeQuery();
@@ -242,8 +260,9 @@ try {
      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
      tanggal = format.format(sebelumtgl.getDate());
      tanggal2 = format.format(sampaitgl.getDate());
-     sql = "select * from tbl_penjualan where TanggalPenjualan <'"+tanggal+"'";
+     sql = "select * from penjualan where TanggalPenjualan between '"+tanggal +"' and '"+tanggal2+"'";
      pst = konek.prepareStatement(sql);
+     rst = pst.executeQuery();
      tbllaptransaksi.setModel(DbUtils.resultSetToTableModel(rst));
  } catch (Exception e) {
      JOptionPane.showMessageDialog(null, "Data Tidak Tampil");
@@ -254,9 +273,10 @@ try {
     private void btncari3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncari3ActionPerformed
     try {
      SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-     tanggal = format.format(sebelumtgl.getDate());
-     sql = "select * from tbl_penjualan where TanggalPenjualan >'"+tanggal+"'";
+     tanggal = format.format(setelahtgl.getDate());
+     sql = "select * from penjualan where TanggalPenjualan >'"+tanggal+"'";
      pst = konek.prepareStatement(sql);
+     rst = pst.executeQuery();
      tbllaptransaksi.setModel(DbUtils.resultSetToTableModel(rst));
  } catch (Exception e) {
      JOptionPane.showMessageDialog(null, "Data Tidak Tampil");
@@ -281,6 +301,10 @@ try {
     private void sebelumtglMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sebelumtglMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_sebelumtglMouseClicked
+
+    private void btnkeluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkeluarActionPerformed
+this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnkeluarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -321,6 +345,7 @@ try {
     private javax.swing.JButton btncari1;
     private javax.swing.JButton btncari2;
     private javax.swing.JButton btncari3;
+    private javax.swing.JButton btnkeluar;
     private com.toedter.calendar.JDateChooser daritgl;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;

@@ -391,6 +391,11 @@ ResultSet rst;
         });
 
         jMenuItem1.setText("recap laporan");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         Laporan.add(jMenuItem1);
 
         jMenuBar1.add(Laporan);
@@ -444,7 +449,7 @@ ResultSet rst;
     }//GEN-LAST:event_ProdukActionPerformed
 
     private void PenjualanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PenjualanActionPerformed
-        new formpenjualan().setVisible(true);
+        new formpenjual().setVisible(true);
         // TODO add your handling code here:
     }//GEN-LAST:event_PenjualanActionPerformed
 
@@ -459,10 +464,6 @@ ResultSet rst;
     private void btnprodukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnprodukActionPerformed
         new formproduk().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_btnprodukActionPerformed
-
-    private void btnpenjualanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpenjualanActionPerformed
-        new formpenjualan().setVisible(true);        // TODO add your handling code here:
-    }//GEN-LAST:event_btnpenjualanActionPerformed
 
     private void cmbhakaksesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbhakaksesActionPerformed
         // TODO add your handling code here:
@@ -544,6 +545,14 @@ ResultSet rst;
     private void TentangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TentangActionPerformed
 new formabout().setVisible(true);      // TODO add your handling code here:
     }//GEN-LAST:event_TentangActionPerformed
+
+    private void btnpenjualanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpenjualanActionPerformed
+        new formpenjual().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_btnpenjualanActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+new formlaptransaksi().setVisible(true);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
